@@ -1,8 +1,10 @@
-import React from "react";
+import { React } from "react";
 import "./css/loginform.css";
 import { Link } from "react-router-dom";
 
 const LoginForm = () => {
+
+
     return (
         <div className="cover">
             <h1>Welcome Back!</h1>
@@ -10,7 +12,7 @@ const LoginForm = () => {
             <input type="password" placeholder="Password"/>
 
             <div className="login-btn">
-                <Link>Login</Link>
+                <Link to="homepage">Login</Link>
             </div>
 
             <div className="create-account">

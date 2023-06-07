@@ -3,6 +3,7 @@ import "./css/createaccount.css";
 import { Link } from "react-router-dom";
 
 const CreateAccountForm = () => {
+    const notify = () => alert("Account Created!")
     return (
         <div className="cover">
             <h1>Create An Account</h1>
@@ -10,7 +11,9 @@ const CreateAccountForm = () => {
             <input type="email" placeholder="Email"/>
             <input type="password" placeholder="Password"/>
 
-            <div className="create-btn">Create Account</div>
+            <div className="create-btn" onClick={notify}>
+                Create Account
+            </div>
             <div className="login-account">
                 <Link to="/" className="login">
                     To Login Page
