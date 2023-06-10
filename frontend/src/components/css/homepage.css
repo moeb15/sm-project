@@ -1,12 +1,4 @@
-*{
-    margin:0;
-    box-sizing: border-box;
-    font-family: 'Arial';
-}
 
-body{
-    background-color: aqua;
-}
 
 .page{
     height:100vh;

@@ -1,11 +1,12 @@
 *{
     margin:0;
     box-sizing: border-box;
-    font-family: 'Arial';
+    font-family: 'Roboto Mono', monospace;
 }
 
 body{
-    background-color: aqua;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(105,105,255,1) 0%, rgba(0,212,255,1) 100%);
 }
 
 .page{
@@ -16,26 +17,20 @@ body{
     align-items: center;
 }
 
-.cover{
-    background-color: aliceblue;
-    width: 30em;
-    height: 35em;
+
+.login-div{
+    background-color: rgb(107, 179, 241);
+    width: 25em;
+    height: 23em;
     position: relative;
-    border-radius: 1em;
     box-shadow: 0 0.188em 1.550em rgb(156,156,156);
     display:flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-around;    
 }
 
-.cover form{
-    position: absolute;
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    margin: ;
-}
+
 .create-account{
     width: 80%;
     height: 3em;
@@ -48,7 +43,7 @@ body{
     width: 45%;
     height: 90%;
     border-radius: 0.25em;
-    background-color: rgb(0, 160, 160);
+    background-color: rgb(255, 255, 255);
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -70,7 +65,7 @@ input:focus{
 }
 
 .login-btn{
-    width:40%;
+    width:50%;
     height:3em;
     background-color: rgb(32,177,255);
     display:flex;
@@ -88,14 +83,10 @@ input:focus{
 .create{
     width:40%;
     height:3em;
-    background-color: rgb(32,177,255);
     display:flex;
     justify-content: center;
     align-items: center;
     transition: 0.5s;
     border-radius: 0.25em;
     cursor: pointer;
-}
-.create:hover{
-    transform: scale(1.03);
 }

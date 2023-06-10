@@ -18,13 +18,13 @@ const LoginForm = () => {
         })
         .catch(function (error){
             console.log(error)
+            alert("Invalid Credentials")
         })
     }
 
     return (
-        <div>
-            <form className="cover">
-                <h1>Welcome Back!</h1>
+        <form>
+            <div className="login-div">
                 <input type="email" placeholder="Email"
                 onChange={(e)=>setEmail(e.target.value)}/>
                 <input type="password" placeholder="Password"
@@ -33,11 +33,11 @@ const LoginForm = () => {
                 <div className="login-btn" onClick={submitForm}>Login</div>
                 <div className="create-account">
                     <Link to="create_account" className="create">
-                        Create Account
+                        Sign Up
                     </Link>
                 </div>
-            </form>
-        </div>
+            </div>
+        </form>
     )
 }
 

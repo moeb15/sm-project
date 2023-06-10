@@ -26,7 +26,6 @@ const CreateAccountForm = () => {
     return (
         <div>
             <form className="cover">
-                <h1>Create An Account</h1>
                 <input type="text" placeholder="Username"
                 value={getUser}
                 onChange={(e) => setUser(e.target.value)}/>
@@ -42,7 +41,7 @@ const CreateAccountForm = () => {
                 </div>
                 <div className="login-account">
                     <Link to="/" className="login">
-                        To Login Page
+                        Login
                     </Link>
                 </div>
             </form>
