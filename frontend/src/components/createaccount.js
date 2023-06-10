@@ -8,20 +8,21 @@ const CreateAccountForm = () => {
     const [ getUser, setUser ] = useState('')
     const [ getPassword, setPassword ] = useState('')
 
-    const submitAccount = () =>{
-        axios.post("http://127.0.0.1:5000/users/create_account", {
+    const submitAccount = async() =>{
+        const userData = {
             username:getUser,
-            email: getEmail,
-            password: getPassword
-        })
+            email:getEmail,
+            password:getPassword
+        };
+        await axios.post("http://127.0.0.1:5000/users/create_account", userData)
         .then(function (response){
-            console.log(response.status)
-            alert("Account Created!")
+            console.log(response.message);
+            alert("Account Created!");
         })
         .catch(function (error){
-            console.log(error)
-            alert("Account couldn't be created!")
-        })
+            console.log(error.message);
+            alert("Account couldn't be created!");
+        });
     }
     return (
         <div>
