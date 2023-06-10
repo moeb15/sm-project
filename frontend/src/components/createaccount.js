@@ -14,15 +14,13 @@ const CreateAccountForm = () => {
             email:getEmail,
             password:getPassword
         };
-        await axios.post("http://127.0.0.1:5000/users/create_account", userData)
-        .then(function (response){
-            console.log(response);
+        try{
+            await axios.post("http://127.0.0.1:5000/users/create_account", userData);
             alert("Account Created!");
-        })
-        .catch(function (error){
-            console.log(error.message);
-            alert("Account couldn't be created!");
-        });
+        }catch(err){
+            console.log(err.message)
+            alert('Account Not Created!')
+        }
     }
     return (
         <div>
