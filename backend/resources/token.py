@@ -4,9 +4,10 @@ from flask_jwt_extended import (
     get_jwt_identity, 
     jwt_required,
     get_jwt)
-from flask import request
+from flask import request, make_response
 from http import HTTPStatus
 from flask_restful import Resource
+from flask_cors import cross_origin
 
 from models.users import User
 from utils import verify_password
@@ -15,6 +16,9 @@ blocklist = set()
 
 
 class TokenResource(Resource):
+    @cross_origin(methods=['POST'],
+                    supports_credentials=True, 
+                    headers=['Content-Type', 'Authorization'])
     def post(self):
         json_data = request.get_json()
         email = json_data['email']
@@ -28,7 +32,13 @@ class TokenResource(Resource):
         access_token = create_access_token(user.id)
         refresh_token = create_refresh_token(user.id)
 
-        return {'access_token':access_token, 'refresh_token':refresh_token}, HTTPStatus.OK
+        response = make_response({'msg':'successfully logged in'})
+        response.set_cookie('access_token',value=access_token,
+                            domain="127.0.0.1")
+        response.set_cookie('refresh_token',value=refresh_token,
+                            domain="127.0.0.1")
+
+        return response, HTTPStatus.OK
     
 class RefreshResource(Resource):
     @jwt_required(refresh=True)

@@ -1,26 +1,26 @@
-import { React, useState } from "react";
+import { React, useContext, useState } from "react";
 import "./css/loginform.css";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import AuthContextProvider from "./authcontext";
 
 const LoginForm = () => {
-    const [ getEmail, setEmail ] = useState('')
-    const [ getPassword, setPassword] = useState('')
-    
-    const submitForm = () =>{
-        axios.post("http://127.0.0.1:5000/token", {
+    const [ getEmail, setEmail ] = useState('');
+    const [ getPassword, setPassword] = useState('');
+    const { login } = useContext(AuthContextProvider)
+
+    const submitForm = async () =>{
+        const payload = {
             email: getEmail,
             password: getPassword
-        })
-        .then(function (response){
-            console.log(response)
-            window.location = "/homepage"
-        })
-        .catch(function (error){
-            console.log(error)
-            alert("Invalid Credentials")
-        })
-    }
+        };
+
+        try{
+            await login(payload)
+        } catch(err){
+            console.log(err.message);
+            alert('Invalid Credentials');
+        }
+    };
 
     return (
         <form>
@@ -38,7 +38,7 @@ const LoginForm = () => {
                 </div>
             </div>
         </form>
-    )
+    );
 }
 
 export default LoginForm;
