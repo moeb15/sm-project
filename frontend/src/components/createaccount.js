@@ -16,7 +16,7 @@ const CreateAccountForm = () => {
         };
         await axios.post("http://127.0.0.1:5000/users/create_account", userData)
         .then(function (response){
-            console.log(response.message);
+            console.log(response);
             alert("Account Created!");
         })
         .catch(function (error){
