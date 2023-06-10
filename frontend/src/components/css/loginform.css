@@ -65,7 +65,7 @@ input:focus{
 }
 
 .login-btn{
-    width:50%;
+    width:30%;
     height:3em;
     background-color: rgb(32,177,255);
     display:flex;
